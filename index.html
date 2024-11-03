@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criptografia Simples</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Criptografia "Simples"</h1>
+        <label for="inputText">Texto:</label>
+        <textarea id="inputText" placeholder="Digite sua frase aqui..."></textarea>
+        
+        <label for="shift">Deslocamento:</label>
+        <input type="number" id="shift" value="3" />
+        
+        <button onclick="encryptText(), decryptText()">Criptografar e Descriptografar</button>
+        <button onclick="cocodificarText()">Cocodificar</button>
+        
+        <h2>Resultado criptografia:</h2>
+        <label id="resultLabel1"></label>
+        <h2>Resultado descriptografia:</h2>
+        <label id="resultLabel2"></label>
+        <h2>Resultado cocodificado:</h2>
+        <label id="resultLabel3"></label>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
