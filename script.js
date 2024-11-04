@@ -1,8 +1,8 @@
 // Função para criptografar
-function criptografar(text, shift) {
+function criptografar(texto, chave) {
     let result = '';
-    for (let i = 0; i < text.length; i++) {
-        let char = text[i];
+    for (let i = 0; i < texto.length; i++) {
+        let char = texto[i];
         if (char.match(/[a-z]/i)) {
             // Determina o código ASCII base (A ou a)
             let base = "";
@@ -14,7 +14,7 @@ function criptografar(text, shift) {
                 base = 97; // 97 é a
             }
             // Aplica o deslocamento
-            result += String.fromCharCode(((char.charCodeAt(0) - base + shift) % 26) + base);
+            result += String.fromCharCode(((char.charCodeAt(0) - base + chave) % 26) + base);
         } else {
             // Se não for letra, mantém o caractere original
             result += char;
@@ -23,10 +23,10 @@ function criptografar(text, shift) {
 
     return result;
 }
-function cocodificar(text) {
+function cocodificar(texto) {
     let result = '';
-    for (let i = 0; i < text.length; i++) {
-        let char = text[i];
+    for (let i = 0; i < texto.length; i++) {
+        let char = texto[i];
         if (char.match(/[a-z]/i)) {
             const base = char.charCodeAt(0) < 91 ? 65 : 97;
             if(base >= 65 && base <= 91){
@@ -45,27 +45,27 @@ function cocodificar(text) {
 }
 
 // Função para descriptografar
-function descriptografar(text, shift) {
+function descriptografar(texto, chave) {
     // Para descriptografar, usamos o deslocamento negativo
-    return criptografar(text, -shift);
+    return criptografar(texto, -chave);
 }
 
 
 // Funções para manipular a interface
-function encryptText() {
-    const inputText = document.getElementById('inputText').value;
-    const shift = parseInt(document.getElementById('shift').value, 10);
-    const encryptedText = criptografar(inputText, shift);
-    document.getElementById('resultLabel1').innerText = "Texto Criptografado: " + encryptedText;
+function criptografarTexto() {
+    const texto = document.getElementById('Texto').value;
+    const chave = parseInt(document.getElementById('Chave').value, 10);
+    const textoCriptografado = criptografar(texto, chave);
+    document.getElementById('resultLabel1').innerText = "Texto Criptografado: " + textoCriptografado;
 }
-function decryptText() {
-    const inputText = document.getElementById('inputText').value;
-    const shift = parseInt(document.getElementById('shift').value, 10);
-    const decryptedText = descriptografar(criptografar(inputText,shift), shift);
-    document.getElementById('resultLabel2').innerText = "Texto Descriptografado: " + decryptedText;
+function descriptografarTexto() {
+    const texto = document.getElementById('Texto').value;
+    const chave = parseInt(document.getElementById('Chave').value, 10);
+    const textoDescriptografado = descriptografar(criptografar(texto,chave), chave);
+    document.getElementById('resultLabel2').innerText = "Texto Descriptografado: " + textoDescriptografado;
 }
-function cocodificarText() {
-    const inputText = document.getElementById('inputText').value;
-    const cocodificadoText = cocodificar(inputText);
-    document.getElementById('resultLabel3').innerText = "Texto Cocodificado: " + cocodificadoText;
+function cocodificarTexto() {
+    const texto = document.getElementById('Texto').value;
+    const textoCocodificado = cocodificar(texto);
+    document.getElementById('resultLabel3').innerText = "Texto Cocodificado: " + textoCocodificado;
 }

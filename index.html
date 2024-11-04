@@ -9,14 +9,15 @@
 <body>
     <div class="container">
         <h1>Criptografia "Simples"</h1>
-        <label for="inputText">Texto:</label>
-        <textarea id="inputText" placeholder="Digite sua frase aqui..."></textarea>
+        <label for="Texto">Texto:</label>
+        <textarea id="Texto" placeholder="Digite sua frase aqui..."></textarea>
         
-        <label for="shift">Deslocamento:</label>
-        <input type="number" id="shift" value="3" />
+        <label for="Chave">Deslocamento:</label>
+        <input type="number" id="Chave" value="3"/>
         
-        <button onclick="encryptText(), decryptText()">Criptografar e Descriptografar</button>
-        <button onclick="cocodificarText()">Cocodificar</button>
+        <button id="criptografar" onclick="criptografarTexto()">Criptografar</button>
+        <button id="descriptografar" onclick="descriptografarTexto()">Descriptografar</button>
+        <button id="cocodificar" onclick="cocodificarTexto()">Cocodificar</button>
         
         <h2>Resultado criptografia:</h2>
         <label id="resultLabel1"></label>
