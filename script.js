@@ -1,12 +1,12 @@
 // Função para criptografar
 function criptografar(texto, chave) {
-    let result = '';
+    let resultado = '';
     for (let i = 0; i < texto.length; i++) {
-        let char = texto[i];
-        if (char.match(/[a-z]/i)) {
+        let caractere = texto[i];
+        if (caractere.match(/[a-z]/i)) {
             // Determina o código ASCII base (A ou a)
             let base = "";
-            if(char.charCodeAt(0) <= 91){
+            if(caractere.charCodeAt(0) <= 91){
                 base = 65;// 65 é A
             }
             else
@@ -14,34 +14,34 @@ function criptografar(texto, chave) {
                 base = 97; // 97 é a
             }
             // Aplica o deslocamento
-            result += String.fromCharCode(((char.charCodeAt(0) - base + chave) % 26) + base);
+            resultado += String.fromCharCode(((caractere.charCodeAt(0) - base + chave) % 26) + base);
         } else {
             // Se não for letra, mantém o caractere original
-            result += char;
+            resultado += char;
         }
     }
 
-    return result;
+    return resultado;
 }
 function cocodificar(texto) {
-    let result = '';
+    let resultado = '';
     for (let i = 0; i < texto.length; i++) {
-        let char = texto[i];
-        if (char.match(/[a-z]/i)) {
-            const base = char.charCodeAt(0) < 91 ? 65 : 97;
+        let caractere = texto[i];
+        if (caractere.match(/[a-z]/i)) {
+            const base = caractere.charCodeAt(0) < 91 ? 65 : 97;
             if(base >= 65 && base <= 91){
-            result += "Co";
+            resultado += "Co";
             }
             else if(base >= 97 && base <= 123){
-                result += "co"
+                resultado += "co"
             }
         } else {
             // Se não for letra, mantém o caractere original
-            result += char;
+            resultado += char;
         }
     }
 
-    return result;
+    return resultado;
 }
 
 // Função para descriptografar
