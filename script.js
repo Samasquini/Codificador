@@ -13,10 +13,8 @@ function criptografar(texto, chave) {
             {
                 base = 97; // 97 é a
             }
-            // Aplica o deslocamento
             resultado += String.fromCharCode(((caractere.charCodeAt(0) - base + chave) % 26) + base);
         } else {
-            // Se não for letra, mantém o caractere original
             resultado += caractere;
         }
     }
@@ -28,7 +26,7 @@ function cocodificar(texto) {
     for (let i = 0; i < texto.length; i++) {
         let caractere = texto[i];
         if (caractere.match(/[a-z]/i)) {
-            const base = caractere.charCodeAt(0) < 91 ? 65 : 97;
+            const base = "";
             if(base >= 65 && base <= 91){
             resultado += "Co";
             }
@@ -36,7 +34,6 @@ function cocodificar(texto) {
                 resultado += "co"
             }
         } else {
-            // Se não for letra, mantém o caractere original
             resultado += caractere;
         }
     }
@@ -44,14 +41,11 @@ function cocodificar(texto) {
     return resultado;
 }
 
-// Função para descriptografar
 function descriptografar(texto, chave) {
-    // Para descriptografar, usamos o deslocamento negativo
     return criptografar(texto, -chave);
 }
 
 
-// Funções para manipular a interface
 function criptografarTexto() {
     const texto = document.getElementById('Texto').value;
     const chave = parseInt(document.getElementById('Chave').value, 10);
