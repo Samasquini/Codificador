@@ -25,7 +25,7 @@ function cocodificar(texto) {
     let resultado = '';
     for (let i = 0; i < texto.length; i++) {
         let caractere = texto[i];
-        if (caractere.match(/[a-z]/i)) {
+        if (caractere.charCodeAt(0) <= 91) {
             const base = "";
             if(base >= 65 && base <= 91){
             resultado += "Co";
