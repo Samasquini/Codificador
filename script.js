@@ -17,7 +17,7 @@ function criptografar(texto, chave) {
             resultado += String.fromCharCode(((caractere.charCodeAt(0) - base + chave) % 26) + base);
         } else {
             // Se não for letra, mantém o caractere original
-            resultado += char;
+            resultado += caractere;
         }
     }
 
@@ -37,7 +37,7 @@ function cocodificar(texto) {
             }
         } else {
             // Se não for letra, mantém o caractere original
-            resultado += char;
+            resultado += caractere;
         }
     }
 
@@ -56,16 +56,16 @@ function criptografarTexto() {
     const texto = document.getElementById('Texto').value;
     const chave = parseInt(document.getElementById('Chave').value, 10);
     const textoCriptografado = criptografar(texto, chave);
-    document.getElementById('labelResultado').innerText = "Texto Criptografado: " + textoCriptografado;
+    document.getElementById('labelResultado').innerText = "Texto Criptografado: \n" + textoCriptografado;
 }
 function descriptografarTexto() {
     const texto = document.getElementById('Texto').value;
     const chave = parseInt(document.getElementById('Chave').value, 10);
     const textoDescriptografado = descriptografar(texto, chave);
-    document.getElementById('labelResultado').innerText = "Texto Descriptografado: " + textoDescriptografado;
+    document.getElementById('labelResultado').innerText = "Texto Descriptografado: \n" + textoDescriptografado;
 }
 function cocodificarTexto() {
     const texto = document.getElementById('Texto').value;
     const textoCocodificado = cocodificar(texto);
-    document.getElementById('labelResultado').innerText = "Texto Cocodificado: " + textoCocodificado;
+    document.getElementById('labelResultado').innerText = "Texto Cocodificado: \n" + textoCocodificado;
 }
