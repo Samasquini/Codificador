@@ -56,16 +56,16 @@ function criptografarTexto() {
     const texto = document.getElementById('Texto').value;
     const chave = parseInt(document.getElementById('Chave').value, 10);
     const textoCriptografado = criptografar(texto, chave);
-    document.getElementById('resultLabel1').innerText = "Texto Criptografado: " + textoCriptografado;
+    document.getElementById('labelResultado').innerText = "Texto Criptografado: " + textoCriptografado;
 }
 function descriptografarTexto() {
     const texto = document.getElementById('Texto').value;
     const chave = parseInt(document.getElementById('Chave').value, 10);
-    const textoDescriptografado = descriptografar(criptografar(texto,chave), chave);
-    document.getElementById('resultLabel2').innerText = "Texto Descriptografado: " + textoDescriptografado;
+    const textoDescriptografado = descriptografar(texto, chave);
+    document.getElementById('labelResultado').innerText = "Texto Descriptografado: " + textoDescriptografado;
 }
 function cocodificarTexto() {
     const texto = document.getElementById('Texto').value;
     const textoCocodificado = cocodificar(texto);
-    document.getElementById('resultLabel3').innerText = "Texto Cocodificado: " + textoCocodificado;
+    document.getElementById('labelResultado').innerText = "Texto Cocodificado: " + textoCocodificado;
 }
